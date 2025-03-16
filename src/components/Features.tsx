@@ -7,6 +7,7 @@ import calendarImage from '../assets/feature-calendar.png';
 import emergencyImage from '../assets/feature-emergency.png';
 import customerImage from '../assets/feature-customer.png';
 import websiteImage from '../assets/feature-website.png';
+import followUpImage from '../assets/feature-followup.png';
 
 const Features = () => {
   const featureCards = [
@@ -34,6 +35,11 @@ const Features = () => {
       image: websiteImage,
       title: "Turns Website Visitors Into Paying Jobs",
       description: "When customers fill out your website form, ForgeCommand calls them back in minutes—before they call your competitor."
+    },
+    {
+      image: followUpImage,
+      title: "Automatically Follows Up After Service",
+      description: "Sends thank-you messages, requests reviews, and checks customer satisfaction without you lifting a finger. Turn one-time customers into lifetime clients."
     }
   ];
 
