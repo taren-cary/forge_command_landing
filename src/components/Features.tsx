@@ -1,30 +1,37 @@
 import React from 'react';
-import { Phone, Calendar, AlertCircle, Star, Globe } from 'lucide-react';
+import { Phone } from 'lucide-react';
+
+// Import your images
+import phoneImage from '../assets/feature-phone.png';
+import calendarImage from '../assets/feature-calendar.png';
+import emergencyImage from '../assets/feature-emergency.png';
+import customerImage from '../assets/feature-customer.png';
+import websiteImage from '../assets/feature-website.png';
 
 const Features = () => {
   const featureCards = [
     {
-      icon: <Phone className="text-white" size={32} />,
+      image: phoneImage,
       title: "Answers Like Your Best Guy",
       description: "Speaks like a real tradesman, not some robot. Customers won't even know it's AI."
     },
     {
-      icon: <Calendar className="text-white" size={32} />,
+      image: calendarImage,
       title: "Books Jobs Right Into Your Calendar",
       description: "Syncs with your existing schedule. No double-bookings, no forgotten appointments."
     },
     {
-      icon: <AlertCircle className="text-white" size={32} />,
+      image: emergencyImage,
       title: "Knows an Emergency When It Hears One",
       description: "Water main break at 2 AM? ForgeCommand alerts you immediately. Routine service call? Gets scheduled for business hours."
     },
     {
-      icon: <Star className="text-white" size={32} />,
+      image: customerImage,
       title: "Remembers Your Regulars",
       description: "Recognizes repeat customers, pulls up their history, and makes them feel like VIPs."
     },
     {
-      icon: <Globe className="text-white" size={32} />,
+      image: websiteImage,
       title: "Turns Website Visitors Into Paying Jobs",
       description: "When customers fill out your website form, ForgeCommand calls them back in minutes—before they call your competitor."
     }
@@ -48,10 +55,12 @@ const Features = () => {
               key={index} 
               className="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:transform hover:scale-105"
             >
-              <div className="bg-gradient-to-r from-primary to-slate p-6 flex justify-center">
-                <div className="w-16 h-16 rounded-full bg-secondary flex items-center justify-center">
-                  {feature.icon}
-                </div>
+              <div className="w-full h-48 overflow-hidden">
+                <img 
+                  src={feature.image} 
+                  alt={feature.title} 
+                  className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                />
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-bold text-primary mb-3">

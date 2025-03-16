@@ -1,5 +1,6 @@
 import React from 'react';
 import { DollarSign, PhoneOff, PhoneCall, Calendar } from 'lucide-react';
+import newBackgroundTexture from '../assets/new-texture.png';
 
 const EarlyCatalyst = () => {
   return (
@@ -76,7 +77,14 @@ const EarlyCatalyst = () => {
           </div>
           
           {/* Stats about cost of missed calls */}
-          <div className="bg-steel-texture bg-cover bg-center rounded-xl p-8 text-white">
+          <div 
+            className="rounded-xl p-8 text-white"
+            style={{ 
+              backgroundImage: `url(${newBackgroundTexture})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center'
+            }}
+          >
             <h3 className="text-2xl font-bold mb-6 text-center">The Real Cost of Missed Calls</h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="text-center">
@@ -119,8 +127,8 @@ const EarlyCatalyst = () => {
                   <DollarSign className="text-white" size={24} />
                 </div>
               </div>
-              <p className="text-center mt-4 text-steel font-medium">
-                Every answered call becomes a booked job and money in your pocket
+              <p className="text-center mx-auto max-w-md mt-4 text-steel font-medium">
+                Every answered call becomes a booked job and money in your pocket.
               </p>
             </div>
           </div>
