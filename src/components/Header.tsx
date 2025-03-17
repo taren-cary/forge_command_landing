@@ -10,7 +10,7 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 10);
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -19,7 +19,7 @@ const Header = () => {
 
   const navItems = [
     { name: 'Features', to: 'features' },
-    { name: 'How It Works', to: 'how-it-works' },
+    { name: 'How It Works', to: 'transformation' },
     { name: 'Pricing', to: 'pricing' },
     { name: 'FAQ', to: 'faq' }
   ];
@@ -32,14 +32,23 @@ const Header = () => {
       <div className="container">
         <nav className="flex items-center justify-between">
           <div className="flex items-center">
-            {/* Replace the inline SVG with the imported logo */}
-            <img 
-              src={Logo} 
-              alt="ForgeCommand Logo" 
-              width="160" 
-              height="90" 
-              className="fill-primary"
-            />
+            {/* Logo that scrolls to top when clicked */}
+            <Link
+              to="hero"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="cursor-pointer"
+            >
+              <img 
+                src={Logo} 
+                alt="ForgeCommand Logo" 
+                width="160" 
+                height="90" 
+                className="fill-primary"
+              />
+            </Link>
           </div>
 
           {/* Desktop Navigation */}
@@ -52,51 +61,70 @@ const Header = () => {
                 smooth={true}
                 offset={-80}
                 duration={500}
-                className="text-steel hover:text-primary cursor-pointer font-medium"
+                className="text-steel hover:text-primary cursor-pointer font-medium transition-colors"
+                activeClass="text-primary font-semibold"
               >
                 {item.name}
               </Link>
             ))}
-            <a href="#demo" className="btn btn-primary">
-              <Phone size={20} />
+            <Link
+              to="demo"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="btn btn-primary"
+            >
+              <Phone size={20} className="mr-2" />
               Get Started
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
             className="md:hidden text-steel"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </nav>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white shadow-lg py-4">
-            <div className="flex flex-col space-y-4 px-4">
-              {navItems.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  spy={true}
-                  smooth={true}
-                  offset={-80}
-                  duration={500}
-                  className="text-steel hover:text-primary cursor-pointer font-medium"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <a href="#demo" className="btn btn-primary w-full justify-center">
-                <Phone size={20} />
-                Get Started
-              </a>
-            </div>
+        <div className={cn(
+          "md:hidden absolute left-0 right-0 bg-white shadow-lg transition-all duration-300 overflow-hidden",
+          isMenuOpen ? "max-h-96 py-4" : "max-h-0"
+        )}>
+          <div className="container space-y-4">
+            {navItems.map((item) => (
+              <Link
+                key={item.to}
+                to={item.to}
+                spy={true}
+                smooth={true}
+                offset={-80}
+                duration={500}
+                className="block py-2 text-steel hover:text-primary cursor-pointer font-medium"
+                activeClass="text-primary font-semibold"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                {item.name}
+              </Link>
+            ))}
+            <Link
+              to="demo"
+              spy={true}
+              smooth={true}
+              offset={-80}
+              duration={500}
+              className="btn btn-primary block text-center"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Phone size={20} className="mr-2 inline-block" />
+              Get Started
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </header>
   );

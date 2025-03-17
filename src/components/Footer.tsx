@@ -1,25 +1,18 @@
 import React from 'react';
-import { Phone, Mail, Shield, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
-import Logo from '../assets/logo2.svg'; // Make sure you have your logo in the assets folder
+import { Link } from 'react-scroll';
+import { Phone, Mail, MapPin, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import Logo from '../assets/logo2.svg';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-  
   return (
-    <footer className="bg-slate-900 text-white pt-12 pb-6">
+    <footer className="bg-primary text-white pt-16 pb-8">
       <div className="container">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div className="col-span-1">
-            <img 
-              src={Logo} 
-              alt="ForgeCommand Logo" 
-              width="160" 
-              height="40" 
-              className="fill-primary" 
-            />
+            <img src={Logo} alt="ForgeCommand Logo" className="h-12 mb-4" />
             <p className="text-slate-300 mb-4">
-              24/7 AI voice dispatcher for service contractors. Never miss another call.
+              The AI voice dispatcher that never sleeps, never complains, and never misses a call.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-slate-300 hover:text-secondary transition-colors">
@@ -36,75 +29,106 @@ const Footer = () => {
               </a>
             </div>
           </div>
-          
+
           {/* Quick Links */}
           <div className="col-span-1">
             <h4 className="text-white font-bold mb-4">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <a href="#features" className="text-slate-300 hover:text-secondary transition-colors">Features</a>
+                <Link 
+                  to="features" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-80} 
+                  duration={500}
+                  className="text-slate-300 hover:text-secondary transition-colors cursor-pointer"
+                >
+                  Features
+                </Link>
               </li>
               <li>
-                <a href="#pricing" className="text-slate-300 hover:text-secondary transition-colors">Pricing</a>
+                <Link 
+                  to="pricing" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-80} 
+                  duration={500}
+                  className="text-slate-300 hover:text-secondary transition-colors cursor-pointer"
+                >
+                  Pricing
+                </Link>
               </li>
               <li>
-                <a href="#faq" className="text-slate-300 hover:text-secondary transition-colors">FAQ</a>
+                <Link 
+                  to="faq" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-80} 
+                  duration={500}
+                  className="text-slate-300 hover:text-secondary transition-colors cursor-pointer"
+                >
+                  FAQ
+                </Link>
               </li>
               <li>
-                <a href="#demo" className="text-slate-300 hover:text-secondary transition-colors">See Demo</a>
+                <Link 
+                  to="transformation" 
+                  spy={true} 
+                  smooth={true} 
+                  offset={-80} 
+                  duration={500}
+                  className="text-slate-300 hover:text-secondary transition-colors cursor-pointer"
+                >
+                  See Demo
+                </Link>
               </li>
             </ul>
           </div>
-          
-          {/* Contact */}
+
+          {/* Contact Info */}
           <div className="col-span-1">
             <h4 className="text-white font-bold mb-4">Contact Us</h4>
-            <ul className="space-y-2">
-              <li className="flex items-center">
-                <Phone size={16} className="text-secondary mr-2" />
-                <a href="tel:+18005551234" className="text-slate-300 hover:text-secondary transition-colors">
-                  (800) 555-1234
-                </a>
+            <ul className="space-y-3">
+              <li className="flex items-start">
+                <Phone size={20} className="text-secondary mr-3 flex-shrink-0 mt-1" />
+                <span className="text-slate-300">(555) 123-4567</span>
               </li>
-              <li className="flex items-center">
-                <Mail size={16} className="text-secondary mr-2" />
-                <a href="mailto:info@forgecommand.com" className="text-slate-300 hover:text-secondary transition-colors">
-                  info@forgecommand.com
-                </a>
+              <li className="flex items-start">
+                <Mail size={20} className="text-secondary mr-3 flex-shrink-0 mt-1" />
+                <span className="text-slate-300">info@forgecommand.com</span>
+              </li>
+              <li className="flex items-start">
+                <MapPin size={20} className="text-secondary mr-3 flex-shrink-0 mt-1" />
+                <span className="text-slate-300">123 Main Street<br />Suite 456<br />Anytown, USA 12345</span>
               </li>
             </ul>
           </div>
-          
-          {/* Trust Signals */}
+
+          {/* Newsletter */}
           <div className="col-span-1">
-            <h4 className="text-white font-bold mb-4">Trust & Security</h4>
-            <div className="flex items-center mb-3">
-              <Shield size={16} className="text-secondary mr-2" />
-              <span className="text-slate-300">256-bit SSL Encryption</span>
-            </div>
-            <div className="flex items-center">
-              <Shield size={16} className="text-secondary mr-2" />
-              <span className="text-slate-300">HIPAA Compliant</span>
-            </div>
+            <h4 className="text-white font-bold mb-4">Stay Updated</h4>
+            <p className="text-slate-300 mb-4">
+              Subscribe to our newsletter for tips, news, and special offers.
+            </p>
+            <form className="space-y-2">
+              <input 
+                type="email" 
+                placeholder="Your email address" 
+                className="w-full px-4 py-2 rounded-md bg-slate-700 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-secondary"
+              />
+              <button 
+                type="submit" 
+                className="w-full px-4 py-2 bg-secondary hover:bg-secondary-dark text-white font-medium rounded-md transition-colors"
+              >
+                Subscribe
+              </button>
+            </form>
           </div>
         </div>
-        
-        {/* Bottom Bar */}
-        <div className="pt-6 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center">
-          <p className="text-slate-400 text-sm mb-4 md:mb-0">
-            © {currentYear} ForgeCommand. All rights reserved.
-          </p>
-          <div className="flex space-x-6">
-            <a href="#" className="text-slate-400 text-sm hover:text-secondary transition-colors">
-              Privacy Policy
-            </a>
-            <a href="#" className="text-slate-400 text-sm hover:text-secondary transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-slate-400 text-sm hover:text-secondary transition-colors">
-              Sitemap
-            </a>
-          </div>
+
+        {/* Copyright */}
+        <div className="pt-8 border-t border-slate-700 text-center text-slate-400">
+          <p>&copy; {new Date().getFullYear()} ForgeCommand. All rights reserved.</p>
         </div>
       </div>
     </footer>
