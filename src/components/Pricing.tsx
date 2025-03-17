@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Check, AlertCircle, Calculator } from 'lucide-react';
 import { cn } from '../utils/cn';
 
@@ -52,6 +52,56 @@ const Pricing = () => {
       highlighted: false
     }
   ];
+
+  // State for ROI calculator inputs
+  const [jobValue, setJobValue] = useState(500);
+  const [missedCalls, setMissedCalls] = useState(5);
+  const [conversionRate, setConversionRate] = useState(40);
+  
+  // State for calculated results
+  const [monthlyRevenue, setMonthlyRevenue] = useState(0);
+  const [annualRevenue, setAnnualRevenue] = useState(0);
+  const [annualCost, setAnnualCost] = useState(3564); // ForgeCommand annual cost
+  const [roi, setRoi] = useState(0);
+
+  // Calculate ROI whenever inputs change
+  useEffect(() => {
+    calculateROI();
+  }, [jobValue, missedCalls, conversionRate]);
+
+  // ROI calculation function
+  const calculateROI = () => {
+    // Calculate monthly missed revenue
+    const weeklyJobs = missedCalls * (conversionRate / 100);
+    const weeklyRevenue = weeklyJobs * jobValue;
+    const calculatedMonthlyRevenue = weeklyRevenue * 4.33; // Average weeks per month
+    
+    // Calculate annual missed revenue
+    const calculatedAnnualRevenue = calculatedMonthlyRevenue * 12;
+    
+    // Calculate ROI percentage
+    const calculatedRoi = ((calculatedAnnualRevenue - annualCost) / annualCost) * 100;
+    
+    // Update state with calculated values
+    setMonthlyRevenue(calculatedMonthlyRevenue);
+    setAnnualRevenue(calculatedAnnualRevenue);
+    setRoi(calculatedRoi);
+  };
+
+  // Format currency
+  const formatCurrency = (value) => {
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+      maximumFractionDigits: 0
+    }).format(value);
+  };
+
+  // Handle input changes
+  const handleInputChange = (e, setter) => {
+    const value = parseInt(e.target.value) || 0;
+    setter(value);
+  };
 
   return (
     <section id="pricing" className="section py-20 bg-slate-50">
@@ -125,7 +175,9 @@ const Pricing = () => {
                     type="number" 
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
                     placeholder="500"
-                    defaultValue="500"
+                    value={jobValue}
+                    onChange={(e) => handleInputChange(e, setJobValue)}
+                    min="1"
                   />
                 </div>
                 
@@ -135,7 +187,9 @@ const Pricing = () => {
                     type="number" 
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
                     placeholder="5"
-                    defaultValue="5"
+                    value={missedCalls}
+                    onChange={(e) => handleInputChange(e, setMissedCalls)}
+                    min="0"
                   />
                 </div>
                 
@@ -145,12 +199,18 @@ const Pricing = () => {
                     type="number" 
                     className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-secondary"
                     placeholder="40"
-                    defaultValue="40"
+                    value={conversionRate}
+                    onChange={(e) => handleInputChange(e, setConversionRate)}
+                    min="1"
+                    max="100"
                   />
                 </div>
                 
-                <button className="btn btn-secondary w-full">
-                  <Calculator size={20} />
+                <button 
+                  className="btn btn-secondary w-full flex items-center justify-center"
+                  onClick={calculateROI}
+                >
+                  <Calculator size={20} className="mr-2" />
                   Calculate My ROI
                 </button>
               </div>
@@ -162,22 +222,22 @@ const Pricing = () => {
               <div className="space-y-4">
                 <div className="border-b border-slate-200 pb-3">
                   <p className="text-steel">Monthly missed revenue</p>
-                  <p className="text-3xl font-bold text-secondary">$4,000</p>
+                  <p className="text-3xl font-bold text-secondary">{formatCurrency(monthlyRevenue)}</p>
                 </div>
                 
                 <div className="border-b border-slate-200 pb-3">
                   <p className="text-steel">Annual missed revenue</p>
-                  <p className="text-3xl font-bold text-secondary">$48,000</p>
+                  <p className="text-3xl font-bold text-secondary">{formatCurrency(annualRevenue)}</p>
                 </div>
                 
                 <div className="border-b border-slate-200 pb-3">
                   <p className="text-steel">ForgeCommand annual cost</p>
-                  <p className="text-2xl font-bold text-primary">$3,564</p>
+                  <p className="text-2xl font-bold text-primary">{formatCurrency(annualCost)}</p>
                 </div>
                 
                 <div>
                   <p className="text-steel">Your potential ROI</p>
-                  <p className="text-3xl font-bold text-green-600">1,247%</p>
+                  <p className="text-3xl font-bold text-green-600">{roi.toFixed(0)}%</p>
                 </div>
               </div>
             </div>

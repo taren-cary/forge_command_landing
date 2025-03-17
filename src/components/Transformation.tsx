@@ -1,5 +1,6 @@
 import React from 'react';
 import { TrendingUp, CheckCircle, Quote } from 'lucide-react';
+import mikePlumbingImage from '../assets/mmplumbing.png';
 
 const Transformation = () => {
   return (
@@ -87,15 +88,15 @@ const Transformation = () => {
           <div className="flex flex-col md:flex-row gap-8 items-center">
             <div className="md:w-1/3">
               <img 
-                src="https://images.unsplash.com/photo-1581094794329-c8112c4e56a1?auto=format&fit=crop&q=80&w=400" 
-                alt="Mike's Plumbing" 
+                src={mikePlumbingImage} 
+                alt="Morgan Maxwell's Plumbing" 
                 className="rounded-lg shadow-md"
               />
             </div>
             <div className="md:w-2/3">
-              <h3 className="text-2xl font-bold text-primary mb-4">Mike's Plumbing Success Story</h3>
+              <h3 className="text-2xl font-bold text-primary mb-4">Morgan Maxwell Plumbing Success Story</h3>
               <p className="text-steel mb-4">
-                After struggling with missed calls and lost opportunities, Mike's Plumbing implemented ForgeCommand and saw immediate results.
+                After struggling with missed calls and lost opportunities, Morgan Maxxwell Plumbing implemented ForgeCommand and saw immediate results.
               </p>
               <div className="flex items-center gap-2 text-secondary font-bold text-xl">
                 <TrendingUp />
