@@ -4,6 +4,9 @@ import { cn } from '../utils/cn';
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  
+  // Replace this with your actual Typeform URL
+  const typeformUrl = "https://ff06eppvu4h.typeform.com/to/QBLjlyFN#package=xxxxx&source=xxxxx";
 
   const faqs = [
     {
@@ -40,12 +43,12 @@ const FAQ = () => {
     }
   ];
 
-  const toggleQuestion = (index: number) => {
+  const toggleFaq = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="py-20 bg-white">
+    <section id="faq" className="section py-10 bg-white">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
@@ -67,7 +70,7 @@ const FAQ = () => {
             >
               <button
                 className="w-full py-5 px-4 flex justify-between items-center text-left focus:outline-none"
-                onClick={() => toggleQuestion(index)}
+                onClick={() => toggleFaq(index)}
                 aria-expanded={openIndex === index}
               >
                 <span className="text-lg font-bold text-primary">{faq.question}</span>
@@ -89,18 +92,30 @@ const FAQ = () => {
           ))}
         </div>
 
-        {/* Final CTA */}
         <div className="text-center max-w-2xl mx-auto">
           <h3 className="text-2xl md:text-3xl font-bold text-primary mb-6">
             Ready to Stop Missing Calls and Start Growing Your Business?
           </h3>
+          
+          {/* Mobile version (hidden on md screens and up) */}
           <a 
-            href="#get-started" 
-            className="btn btn-secondary inline-flex items-center px-8 py-4 text-lg rounded-md bg-secondary hover:bg-secondary-dark text-white font-bold transition-colors"
+            href="tel:+15551234567" 
+            className="md:hidden btn btn-secondary inline-flex items-center px-8 py-4 text-lg rounded-md bg-secondary hover:bg-secondary-dark text-white font-bold transition-colors"
           >
             <Phone className="mr-2" size={20} />
             Stop Losing Jobs Today
           </a>
+          
+          {/* Desktop version (hidden on small screens) */}
+          <a 
+            href={typeformUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex btn btn-secondary items-center px-8 py-4 text-lg rounded-md bg-secondary hover:bg-secondary-dark text-white font-bold transition-colors"
+          >
+            Stop Losing Jobs Today
+          </a>
+          
           <p className="mt-4 text-steel">
             14-day risk-free trial. No credit card required.
           </p>

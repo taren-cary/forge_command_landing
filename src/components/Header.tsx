@@ -24,6 +24,9 @@ const Header = () => {
     { name: 'FAQ', to: 'faq' }
   ];
 
+  // Replace this with your actual Typeform URL
+  const typeformUrl = "https://ff06eppvu4h.typeform.com/to/QBLjlyFN#package=xxxxx&source=xxxxx";
+
   return (
     <header className={cn(
       'fixed w-full z-50 transition-all duration-300',
@@ -67,17 +70,16 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="demo"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
+            
+            {/* Desktop Get Started Button - Without phone icon */}
+            <a
+              href={typeformUrl}
+              target="_blank"
+              rel="noopener noreferrer"
               className="btn btn-primary"
             >
-              <Phone size={20} className="mr-2" />
               Get Started
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -111,18 +113,14 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link
-              to="demo"
-              spy={true}
-              smooth={true}
-              offset={-80}
-              duration={500}
+            <a
+              href="tel:+15551234567"
               className="btn btn-primary block text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               <Phone size={20} className="mr-2 inline-block" />
               Get Started
-            </Link>
+            </a>
           </div>
         </div>
       </div>

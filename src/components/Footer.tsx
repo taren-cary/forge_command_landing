@@ -99,7 +99,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <MapPin size={20} className="text-secondary mr-3 flex-shrink-0 mt-1" />
-                <span className="text-slate-300">123 Main Street<br />Suite 456<br />Anytown, USA 12345</span>
+                <span className="text-slate-300">1101 Pennsylvania Ave<br />Washington, DC 20001</span>
               </li>
             </ul>
           </div>

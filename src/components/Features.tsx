@@ -10,6 +10,9 @@ import websiteImage from '../assets/feature-website.png';
 import followUpImage from '../assets/feature-followup.png';
 
 const Features = () => {
+  // Replace this with your actual Typeform URL
+  const typeformUrl = "https://ff06eppvu4h.typeform.com/to/QBLjlyFN#package=xxxxx&source=xxxxx";
+
   const featureCards = [
     {
       image: phoneImage,
@@ -81,11 +84,22 @@ const Features = () => {
         </div>
 
         <div className="mt-16 text-center">
+          {/* Mobile version (hidden on md screens and up) */}
           <a 
-            href="#demo" 
-            className="btn btn-secondary inline-flex items-center px-6 py-3 rounded-md bg-secondary hover:bg-secondary-dark text-white font-medium transition-colors"
+            href="tel:+15551234567" 
+            className="md:hidden btn btn-secondary inline-flex items-center px-6 py-3 rounded-md bg-secondary hover:bg-secondary-dark text-white font-medium transition-colors"
           >
             <Phone className="mr-2" size={20} />
+            See It In Action
+          </a>
+          
+          {/* Desktop version (hidden on small screens) */}
+          <a 
+            href={typeformUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:inline-flex btn btn-secondary items-center px-6 py-3 rounded-md bg-secondary hover:bg-secondary-dark text-white font-medium transition-colors"
+          >
             See It In Action
           </a>
         </div>

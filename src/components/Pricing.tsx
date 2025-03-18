@@ -2,7 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Check, AlertCircle, Calculator } from 'lucide-react';
 import { cn } from '../utils/cn';
 
+
 const Pricing = () => {
+  // Replace this with your actual Calendly booking URL
+  const calendlyUrl = "https://calendly.com/forgecommand/15min";
+  
   const plans = [
     {
       name: "Basic Dispatch",
@@ -146,14 +150,36 @@ const Pricing = () => {
                     </li>
                   ))}
                 </ul>
-                <button className={cn(
-                  "w-full py-3 px-6 rounded-lg font-bold transition-colors",
-                  plan.highlighted 
-                    ? "bg-secondary hover:bg-secondary-dark text-white" 
-                    : "bg-primary hover:bg-primary-light text-white"
-                )}>
+                
+                {/* Mobile version (hidden on md screens and up) */}
+                <a 
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "md:hidden w-full py-3 px-6 rounded-lg font-bold transition-colors block text-center",
+                    plan.highlighted 
+                      ? "bg-secondary hover:bg-secondary-dark text-white" 
+                      : "bg-primary hover:bg-primary-light text-white"
+                  )}
+                >
                   {plan.cta}
-                </button>
+                </a>
+                
+                {/* Desktop version (hidden on small screens) */}
+                <a 
+                  href={calendlyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={cn(
+                    "hidden md:block w-full py-3 px-6 rounded-lg font-bold transition-colors text-center",
+                    plan.highlighted 
+                      ? "bg-secondary hover:bg-secondary-dark text-white" 
+                      : "bg-primary hover:bg-primary-light text-white"
+                  )}
+                >
+                  {plan.cta}
+                </a>
               </div>
             </div>
           ))}
