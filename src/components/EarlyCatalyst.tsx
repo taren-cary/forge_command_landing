@@ -112,9 +112,25 @@ const EarlyCatalyst = () => {
           </div>
           
           {/* Animation showing calls converting to cash */}
-          <div className="flex justify-center mt-12">
+          <div className="flex justify-center mt-8 md:mt-12">
             <div className="relative">
-              <div className="flex items-center">
+              {/* Mobile Animation - Only visible on small screens */}
+              <div className="flex md:hidden items-center">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center">
+                  <PhoneCall className="text-white" size={20} />
+                </div>
+                <div className="w-16 sm:w-24 h-2 bg-secondary"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-secondary flex items-center justify-center">
+                  <Calendar className="text-white" size={20} />
+                </div>
+                <div className="w-16 sm:w-24 h-2 bg-secondary"></div>
+                <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-green-500 flex items-center justify-center">
+                  <DollarSign className="text-white" size={20} />
+                </div>
+              </div>
+              
+              {/* Desktop Animation - Only visible on medium+ screens */}
+              <div className="hidden md:flex items-center">
                 <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
                   <PhoneCall className="text-white" size={24} />
                 </div>
@@ -127,7 +143,8 @@ const EarlyCatalyst = () => {
                   <DollarSign className="text-white" size={24} />
                 </div>
               </div>
-              <p className="text-center mx-auto max-w-md mt-4 text-steel font-medium">
+              
+              <p className="text-center mx-auto max-w-md mt-4 text-sm sm:text-base md:text-steel font-medium">
                 Every answered call becomes a booked job and money in your pocket.
               </p>
             </div>

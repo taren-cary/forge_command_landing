@@ -4,7 +4,7 @@ import mikePlumbingImage from '../assets/mmplumbing.png';
 
 const Transformation = () => {
   return (
-    <section id="transformation" className="section py-20 bg-gradient-to-b from-primary to-slate relative">
+    <section id="transformation" className="section py-10 bg-gradient-to-b from-primary to-slate relative">
       <div className="container">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
