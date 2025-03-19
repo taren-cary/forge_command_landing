@@ -114,7 +114,7 @@ const Header = () => {
               </Link>
             ))}
             <a
-              href="tel:+15551234567"
+              href="tel:+19039643512"
               className="btn btn-primary block text-center"
               onClick={() => setIsMenuOpen(false)}
             >

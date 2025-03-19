@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrendingUp, CheckCircle, Quote } from 'lucide-react';
 import mikePlumbingImage from '../assets/mmplumbing.png';
+import demoVideo from '../assets/demo1.mp4'; // Import the video file
 
 const Transformation = () => {
   return (
@@ -19,26 +20,14 @@ const Transformation = () => {
         <div className="max-w-4xl mx-auto mb-16">
           <div className="bg-white p-4 rounded-lg shadow-xl">
             <div className="relative pb-[56.25%] h-0 overflow-hidden rounded">
-              {/* This is a placeholder for the actual video */}
-              <div className="absolute inset-0 flex items-center justify-center bg-slate-100 rounded">
-                <div className="text-center">
-                  <div className="w-20 h-20 bg-secondary rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-secondary-light transition-colors">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white ml-1">
-                      <polygon points="5 3 19 12 5 21 5 3"></polygon>
-                    </svg>
-                  </div>
-                  <h3 className="text-xl font-bold text-primary mb-2">See ForgeCommand in Action</h3>
-                  <p className="text-steel">Watch how ForgeCommand handles real customer calls</p>
-                </div>
-              </div>
-              {/* When you have the actual video, replace the div above with: */}
-              {/* <iframe 
-                src="https://www.youtube.com/embed/your-video-id" 
-                title="ForgeCommand Demo" 
-                className="absolute top-0 left-0 w-full h-full border-0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowFullScreen
-              ></iframe> */}
+              {/* Actual video player */}
+              <video 
+                className="absolute top-0 left-0 w-full h-full object-cover"
+                controls
+              >
+                <source src={demoVideo} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>

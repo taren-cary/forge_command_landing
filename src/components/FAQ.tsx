@@ -99,7 +99,7 @@ const FAQ = () => {
           
           {/* Mobile version (hidden on md screens and up) */}
           <a 
-            href="tel:+15551234567" 
+            href="tel:+19039643512" 
             className="md:hidden btn btn-secondary inline-flex items-center px-8 py-4 text-lg rounded-md bg-secondary hover:bg-secondary-dark text-white font-bold transition-colors"
           >
             <Phone className="mr-2" size={20} />
