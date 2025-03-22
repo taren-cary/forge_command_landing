@@ -10,30 +10,33 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic Dispatch",
-      price: "$197",
+      price: "$379",
       period: "per month",
       description: "Perfect for independent contractors",
       features: [
         "24/7 Phone Answering",
+        "Starts With 500 Minutes",
+        "Unlimited Users",
         "Basic Scheduling",
+        "Custom AI Knowledge Base",
         "Emergency Detection",
-        "Email Notifications",
-        "Up to 100 Calls Monthly"
+        "Email Notifications"       
       ],
       cta: "Start Capturing Calls",
       highlighted: false
     },
     {
       name: "Pro Dispatch",
-      price: "$297",
+      price: "$479",
       period: "per month",
       description: "Ideal for growing businesses",
       features: [
         "Everything in Basic",
-        "Calendar Integration",
+        "Starts With 1000 Minutes",
+        "3 Locations Included",
+        "Pro Scheduling(ServiceTitan, Jobber)",
         "Customer History Access",
-        "SMS Notifications",
-        "Up to 300 Calls Monthly",
+        "Voice Cloning",
         "Priority Support"
       ],
       cta: "Grow Your Business",
@@ -41,16 +44,17 @@ const Pricing = () => {
     },
     {
       name: "Master Dispatch",
-      price: "$497",
+      price: "$679",
       period: "per month",
       description: "For established businesses",
       features: [
         "Everything in Pro",
-        "Custom Voice Training",
-        "Multi-location Support",
+        "Multilingual Voice Cloning",
+        "Unlimited Locations",
         "Advanced Analytics",
-        "Unlimited Calls",
-        "Dedicated Account Manager"
+        "Hands-On Training",
+        "Dedicated Account Manager",
+        "Custom Integrations"
       ],
       cta: "Dominate Your Market",
       highlighted: false
