@@ -113,9 +113,9 @@ const EarlyCatalyst = () => {
           
           {/* Animation showing calls converting to cash */}
           <div className="flex justify-center mt-8 md:mt-12">
-            <div className="relative">
+            <div className="relative w-full">
               {/* Mobile Animation - Only visible on small screens */}
-              <div className="flex md:hidden items-center">
+              <div className="flex md:hidden items-center justify-center w-full">
                 <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-primary flex items-center justify-center">
                   <PhoneCall className="text-white" size={20} />
                 </div>
@@ -130,7 +130,7 @@ const EarlyCatalyst = () => {
               </div>
               
               {/* Desktop Animation - Only visible on medium+ screens */}
-              <div className="hidden md:flex items-center">
+              <div className="hidden md:flex items-center justify-center w-full">
                 <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
                   <PhoneCall className="text-white" size={24} />
                 </div>
