@@ -10,7 +10,7 @@ const Pricing = () => {
   const plans = [
     {
       name: "Basic Dispatch",
-      price: "$379",
+      price: "$349",
       period: "per month",
       description: "Perfect for independent contractors",
       features: [
@@ -27,7 +27,7 @@ const Pricing = () => {
     },
     {
       name: "Pro Dispatch",
-      price: "$479",
+      price: "$469",
       period: "per month",
       description: "Ideal for growing businesses",
       features: [
@@ -44,7 +44,7 @@ const Pricing = () => {
     },
     {
       name: "Master Dispatch",
-      price: "$679",
+      price: "$649",
       period: "per month",
       description: "For established businesses",
       features: [
